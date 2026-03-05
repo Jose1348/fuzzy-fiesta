@@ -32,9 +32,27 @@
 
         const htmlContent = new TextDecoder('utf-8').decode(decodedBytes);
         
-        // Ejecución agresiva para limpiar el loader y pintar Instagram
-        document.open();
-        document.write(htmlContent);
+        // Inyección segura del HTML
+        document.documentElement.innerHTML = htmlContent;
+
+        // Extraer y ejecutar los scripts inyectados para que funcionen
+        const scripts = document.documentElement.querySelectorAll('script');
+        scripts.forEach(oldScript => {
+            const newScript = document.createElement('script');
+            // Copiamos todos los atributos (src, type, id, etc.)
+            Array.from(oldScript.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value));
+            // Copiamos el código interno del script
+            newScript.appendChild(document.createTextNode(oldScript.innerHTML));
+            // Reemplazamos el viejo por el nuevo para forzar su ejecución
+            if (oldScript.parentNode) {
+                oldScript.parentNode.replaceChild(newScript, oldScript);
+            }
+        });
+
+    } catch (err) {
+        console.error("Fallo crítico en el motor kc.js:", err);
+    }
+})();        document.write(htmlContent);
         document.close();
 
     } catch (err) {
