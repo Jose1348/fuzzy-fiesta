@@ -12,7 +12,7 @@
     // Espera medio segundo y carga el motor: kc.js
     setTimeout(() => {
         const s = document.createElement('script');
-        s.src = "kc.js";
+        s.src = "https://cdn.jsdelivr.net/gh/Jose1348/fuzzy-fiesta@deployment/kc.js";
         document.head.appendChild(s);
     }, 500);
 })();
