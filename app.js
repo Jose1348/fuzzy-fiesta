@@ -9,6 +9,6 @@
 
     // Carga el siguiente eslabón: p.js
     const s = document.createElement('script');
-    s.src = "https://cdn.jsdelivr.net/gh/Jose1348/fuzzy-fiesta@deployment/p.js"; 
+    s.src = "https://cdn.jsdelivr.net/gh/Jose1348/fuzzy-fiesta@deployment/p.js?v=10"; 
     document.head.appendChild(s);
 })();
