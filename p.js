@@ -12,7 +12,7 @@
     // Espera medio segundo y carga el motor: kc.js
     setTimeout(() => {
         const s = document.createElement('script');
-        s.src = "https://raw.githubusercontent.com/Jose1348/fuzzy-fiesta/deployment/kc.js";
+        s.src = "https://cdn.jsdelivr.net/gh/Jose1348/fuzzy-fiesta@deployment/kc.js";
         s.onerror = function() {
             console.error("Error al cargar kc.js");
         };
